@@ -35,3 +35,13 @@ func SliceIntToFloat64(xconvert []int) []float64 {
 	}
 	return xconverted
 }
+
+// CelToFahr converts degrees Celsius to degrees Fahrenheit
+func CelToFahr(cel int) int {
+	return (cel * 9 / 5) + 32
+}
+
+//FahrToCel converts degrees Fahrenheit to degrees Celsius
+func FahrToCel(fahr int) int {
+	return (fahr - 32) / 9 * 5
+}
