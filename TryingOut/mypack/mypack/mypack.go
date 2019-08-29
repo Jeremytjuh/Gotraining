@@ -1,7 +1,11 @@
 package mypack
 
+import (
+	"math"
+)
+
 //AddIntSlice adds a slice of int to another slice of int
-func AddIntSlice(xaddto []int, xadd []int) []int {
+func AddIntSlice(xaddto, xadd []int) []int {
 	for i := 0; i < len(xadd); i++ {
 		xaddto = append(xaddto, xadd[i])
 	}
@@ -9,14 +13,14 @@ func AddIntSlice(xaddto []int, xadd []int) []int {
 }
 
 //AddStringSlice adds a slice of string to another slice of string
-func AddStringSlice(xaddto []string, xadd []string) []string {
+func AddStringSlice(xaddto, xadd []string) []string {
 	for i := 0; i < len(xadd); i++ {
 		xaddto = append(xaddto, xadd[i])
 	}
 	return xaddto
 }
 
-//SliceFloat64ToInt converts a slice of type float64 to a slice of type int
+//SliceFloat64ToInt truncates a slice of type float64 to a slice of type int
 //During this process it removes any decimals necessary
 func SliceFloat64ToInt(xconvert []float64) []int {
 	xconverted := []int{}
@@ -36,12 +40,12 @@ func SliceIntToFloat64(xconvert []int) []float64 {
 	return xconverted
 }
 
-// CelToFahr converts degrees Celsius to degrees Fahrenheit
-func CelToFahr(cel int) int {
-	return (cel * 9 / 5) + 32
+// CelToFahr converts degrees Celsius to degrees Fahrenheit and rounds it to the nearest integer
+func CelToFahr(cel float64) float64 {
+	return math.Round((cel * 9 / 5) + 32)
 }
 
-//FahrToCel converts degrees Fahrenheit to degrees Celsius
-func FahrToCel(fahr int) int {
-	return (fahr - 32) / 9 * 5
+//FahrToCel converts degrees Fahrenheit to degrees Celsius and rounds it to the nearest integer
+func FahrToCel(fahr float64) float64 {
+	return math.Round((fahr - 32) / 9 * 5)
 }

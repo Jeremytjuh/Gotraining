@@ -12,4 +12,6 @@ func main() {
 	for _, v := range xii {
 		fmt.Printf("The area of a circle with a radius of %v cm is %v cm\n", v, v*v*math.Pi)
 	}
+
+	fmt.Printf("Today it's 21 degrees Celsius outside and %v degrees Fahrenheit\n", mypack.CelToFahr(21))
 }
