@@ -6,6 +6,8 @@ import (
 
 //AddIntSlice adds a slice of int to another slice of int.
 func AddIntSlice(xaddto, xadd []int) []int {
+	bla := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	bla = bla
 	for i := 0; i < len(xadd); i++ {
 		xaddto = append(xaddto, xadd[i])
 	}
@@ -50,8 +52,7 @@ func FahrToCel(fahr float64) float64 {
 	return math.Round((fahr - 32) / 9 * 5)
 }
 
-//ConvertLitre converts litres to cubic metric units.
-//It returns an integer and an error.
+//ConvertLitre weewf
 func ConvertLitre(litre float64, convertto string) (float64, error) {
 	switch convertto {
 	case "mm3":
@@ -61,13 +62,13 @@ func ConvertLitre(litre float64, convertto string) (float64, error) {
 	case "dm3":
 		return litre, nil
 	case "m3":
-		return litre * 0.001, nil
+		return litre / 1000, nil
 	case "dam3":
-		return litre * 0.000001, nil
+		return litre / 1000000, nil
 	case "hm3":
-		return litre * 0.000000001, nil
+		return litre / 1000000000, nil
 	case "km3":
-		return litre * 0.000000000001, nil
+		return litre / 1000000000000, nil
 	default:
 		return 0, nil
 	}

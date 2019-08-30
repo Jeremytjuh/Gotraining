@@ -3,7 +3,6 @@ package mypack
 import (
 	"fmt"
 	"testing"
-	"math"
 )
 
 func TestAddIntSlice(t *testing.T) {
@@ -87,9 +86,6 @@ func TestFahrToCel(t *testing.T) {
 }
 
 func TestConvertLitre(t *testing.T) {
-	
-	epsilon := math.Nextafter(1, 2) - 1
-
 	type test struct {
 		litre float64
 		metric string
@@ -107,25 +103,12 @@ func TestConvertLitre(t *testing.T) {
 		test{10, "youremad", 0},
 	}
 
-	// for _, v := range tests {
-	// 	returnedvalue, err := ConvertLitre(v.litre, v.metric)
-	// 	if err != nil {
-	// 		t.Error(err)
-	// 	} else {
-	// 		if returnedvalue != v.answer {
-	// 			t.Error("Expected", v.answer, "got", returnedvalue)
-	// 		}
-	// 	}
-	// }
-
 	for _, v := range tests {
 		returnedvalue, err := ConvertLitre(v.litre, v.metric)
 		if err != nil {
 			fmt.Println("Value matches none of the cases")
 		} else {
-			if returnedvalue <= (v.answer+epsilon) || returnedvalue >= (v.answer-epsilon) {
-
-			} else {
+			if returnedvalue != v.answer {
 				fmt.Println("Expected", v.answer, "got", returnedvalue)
 			}
 		}
@@ -222,21 +205,21 @@ func BenchmarkIntToFloat64(b *testing.B) {
 
 func BenchmarkCelToFahr(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		dc := 21
-		CelToFahr(float64(dc))
+		var dc float64 = 21
+		CelToFahr(dc)
 	}
 }
 
 func BenchmarkFahrToCel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		df := 69
-		FahrToCel(float64(df))
+		var df float64 = 69
+		FahrToCel(df)
 	}
 }
 
 func BenchmarkConvertLitre(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		litre := 10
-		ConvertLitre(float64(litre), "mm3")
+	for i := 0;i < b.N; i++ {
+		var litre float64 = 10
+		ConvertLitre(litre, "d3")
 	}
 }
