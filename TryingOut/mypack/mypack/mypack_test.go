@@ -3,6 +3,7 @@ package mypack
 import (
 	"fmt"
 	"testing"
+	"math"
 )
 
 func TestAddIntSlice(t *testing.T) {
@@ -40,7 +41,7 @@ func TestAddStringSlice(t *testing.T) {
 func TestSliceFloat64ToInt(t *testing.T) {
 	xf := []float64{69.420, 420.69, 33.1, 23.53, 6767.66}
 	returnedvalue := SliceFloat64ToInt(xf)
-	answer := []int{69, 420, 33, 23, 6767}
+	answer := []int{69, 421, 33, 24, 6768}
 	if len(returnedvalue) == len(answer) {
 		for i, v := range returnedvalue {
 			if v != answer[i] {
@@ -85,6 +86,52 @@ func TestFahrToCel(t *testing.T) {
 	}
 }
 
+func TestConvertLitre(t *testing.T) {
+	
+	epsilon := math.Nextafter(1, 2) - 1
+
+	type test struct {
+		litre float64
+		metric string
+		answer float64
+	}
+
+	tests := []test {
+		test{10, "mm3", 10000000},
+		test{10, "cm3", 10000},
+		test{10, "dm3", 10},
+		test{10, "m3", 0.01},
+		test{10, "dam3", 0.00001},
+		test{10, "hm3", 0.00000001},
+		test{10, "km3", 0.00000000001},
+		test{10, "youremad", 0},
+	}
+
+	// for _, v := range tests {
+	// 	returnedvalue, err := ConvertLitre(v.litre, v.metric)
+	// 	if err != nil {
+	// 		t.Error(err)
+	// 	} else {
+	// 		if returnedvalue != v.answer {
+	// 			t.Error("Expected", v.answer, "got", returnedvalue)
+	// 		}
+	// 	}
+	// }
+
+	for _, v := range tests {
+		returnedvalue, err := ConvertLitre(v.litre, v.metric)
+		if err != nil {
+			fmt.Println("Value matches none of the cases")
+		} else {
+			if returnedvalue <= (v.answer+epsilon) || returnedvalue >= (v.answer-epsilon) {
+
+			} else {
+				fmt.Println("Expected", v.answer, "got", returnedvalue)
+			}
+		}
+	}
+}
+
 func ExampleAddIntSlice() {
 	xi := []int{1, 2, 3, 4, 5}
 	xii := []int{6, 7, 8, 9, 10}
@@ -108,7 +155,7 @@ func ExampleSliceFloat64ToInt() {
 	returnedvalue := SliceFloat64ToInt(xf)
 	fmt.Println(returnedvalue)
 	//Output:
-	//[69 420 33 23 6767]
+	//[69 421 33 24 6768]
 }
 
 func ExampleSliceIntToFloat64() {
@@ -133,6 +180,14 @@ func ExampleFahrToCel() {
 	fmt.Println(returnedvalue)
 	//Output:
 	//21
+}
+
+func ExampleConvertLitre() {
+	litre := 10
+	returnedvalue, err := ConvertLitre(float64(litre), "cm3")
+	fmt.Println(returnedvalue, err)
+	//Output:
+	//10000 <nil>
 }
 
 func BenchmarkAddIntSlice(b *testing.B) {
@@ -176,5 +231,12 @@ func BenchmarkFahrToCel(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		df := 69
 		FahrToCel(float64(df))
+	}
+}
+
+func BenchmarkConvertLitre(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		litre := 10
+		ConvertLitre(float64(litre), "mm3")
 	}
 }
