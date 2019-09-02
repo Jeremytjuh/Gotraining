@@ -87,12 +87,12 @@ func TestFahrToCel(t *testing.T) {
 
 func TestConvertLitre(t *testing.T) {
 	type test struct {
-		litre float64
+		litre  float64
 		metric string
 		answer float64
 	}
 
-	tests := []test {
+	tests := []test{
 		test{10, "mm3", 10000000},
 		test{10, "cm3", 10000},
 		test{10, "dm3", 10},
@@ -111,6 +111,114 @@ func TestConvertLitre(t *testing.T) {
 			if returnedvalue != v.answer {
 				fmt.Println("Expected", v.answer, "got", returnedvalue)
 			}
+		}
+	}
+}
+
+func TestConvM(t *testing.T) {
+	type test struct {
+		tocalc float64
+		metric string
+		answer []float64
+	}
+
+	tests := []test{
+		test{10, "mm", []float64{10, 1, 0.1, 0.01, 0.001, 0.0001, 0.00001}},
+		test{10, "cm", []float64{100, 10, 1, 0.1, 0.01, 0.001, 0.0001}},
+		test{10, "dm", []float64{1000, 100, 10, 1, 0.1, 0.01, 0.001}},
+		test{10, "m", []float64{10000, 1000, 100, 10, 1, 0.1, 0.01}},
+		test{10, "dam", []float64{100000, 10000, 1000, 100, 10, 1, 0.1}},
+		test{10, "hm", []float64{1000000, 100000, 10000, 1000, 100, 10, 1}},
+		test{10, "km", []float64{10000000, 1000000, 100000, 10000, 1000, 100, 10}},
+		test{10, "youremad", []float64{}},
+	}
+
+	for _, v := range tests {
+		returnedvalue, err := ConvM(v.tocalc, v.metric)
+		if err == nil {
+			if len(returnedvalue) == len(v.answer) {
+				for i, v := range returnedvalue {
+					if v != returnedvalue[i] {
+						t.Error("Value in slices aren't the same")
+					}
+				}
+			} else {
+				t.Error("Length of slices aren't the same")
+			}
+		} else {
+
+		}
+	}
+}
+
+func TestConvMArea(t *testing.T) {
+	type test struct {
+		tocalc float64
+		metric string
+		answer []float64
+	}
+
+	tests := []test{
+		test{10, "mm2", []float64{10, 0.1, 0.001, 0.00001, 0.0000001, 0.000000001, 0.00000000001}},
+		test{10, "cm2", []float64{1000, 10, 0.1, 0.001, 0.00001, 0.0000001, 0.000000001}},
+		test{10, "dm2", []float64{100000, 1000, 10, 0.1, 0.001, 0.00001, 0.0000001}},
+		test{10, "m2", []float64{10000000, 100000, 1000, 10, 0.1, 0.001, 0.00001}},
+		test{10, "dam2", []float64{1000000000, 10000000, 100000, 1000, 10, 0.1, 0.001}},
+		test{10, "hm2", []float64{100000000000, 1000000000, 10000000, 100000, 1000, 10, 0.1}},
+		test{10, "km2", []float64{10000000000000, 100000000000, 1000000000, 10000000, 100000, 1000, 10}},
+		test{10, "youremad", []float64{}},
+	}
+
+	for _, v := range tests {
+		returnedvalue, err := ConvMArea(v.tocalc, v.metric)
+		if err == nil {
+			if len(returnedvalue) == len(v.answer) {
+				for i, v := range returnedvalue {
+					if v != returnedvalue[i] {
+						t.Error("Value in slices aren't the same")
+					}
+				}
+			} else {
+				t.Error("Length of slices aren't the same")
+			}
+		} else {
+
+		}
+	}
+}
+
+func TestConvMCubic(t *testing.T) {
+	type test struct {
+		tocalc float64
+		metric string
+		answer []float64
+	}
+
+	tests := []test{
+		test{10, "mm3", []float64{10, 0.01, 0.00001, 0.00000001, 0.00000000001, 0.00000000000001, 0.00000000000000001}},
+		test{10, "cm3", []float64{10000, 10, 0.01, 0.00001, 0.00000001, 0.00000000001, 0.00000000000001}},
+		test{10, "dm3", []float64{10000000, 10000, 10, 0.01, 0.00001, 0.00000001, 0.00000000001}},
+		test{10, "m3", []float64{10000000000, 10000000, 10000, 10, 0.01, 0.00001, 0.00000001}},
+		test{10, "dam3", []float64{10000000000000, 10000000000, 10000000, 10000, 10, 0.01, 0.00001}},
+		test{10, "hm3", []float64{10000000000000000, 10000000000000, 10000000000, 10000000, 10000, 10, 0.01}},
+		test{10, "km3", []float64{10000000000000000000, 10000000000000000, 10000000000000, 10000000000, 10000000, 10000, 10}},
+		test{10, "youremad", []float64{}},
+	}
+
+	for _, v := range tests {
+		returnedvalue, err := ConvMCubic(v.tocalc, v.metric)
+		if err == nil {
+			if len(returnedvalue) == len(v.answer) {
+				for i, v := range returnedvalue {
+					if v != returnedvalue[i] {
+						t.Error("Value in slices aren't the same")
+					}
+				}
+			} else {
+				t.Error("Length of slices aren't the same")
+			}
+		} else {
+
 		}
 	}
 }
@@ -173,6 +281,30 @@ func ExampleConvertLitre() {
 	//10000 <nil>
 }
 
+func ExampleConvM() {
+	var convertto float64 = 10
+	returnedvalue, err := ConvM(convertto, "mm")
+	fmt.Println(returnedvalue, err)
+	//Output:
+	//[10 1 0.1 0.01 0.001 0.0001 1e-05] <nil>
+}
+
+func ExampleConvMArea() {
+	var convertto float64 = 10
+	returnedvalue, err := ConvMArea(convertto, "m2")
+	fmt.Println(returnedvalue, err)
+	//Output:
+	//[1e+07 100000 1000 10 0.1 0.001 1e-05] <nil>
+}
+
+func ExampleConvMCubic() {
+	var convertto float64 = 10
+	returnedvalue, err := ConvMCubic(convertto, "hm3")
+	fmt.Println(returnedvalue, err)
+	//Output:
+	//[1e+16 1e+13 1e+10 1e+07 10000 10 0.01] <nil>
+}
+
 func BenchmarkAddIntSlice(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		xi := []int{1, 2, 3, 4, 5}
@@ -218,8 +350,29 @@ func BenchmarkFahrToCel(b *testing.B) {
 }
 
 func BenchmarkConvertLitre(b *testing.B) {
-	for i := 0;i < b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		var litre float64 = 10
-		ConvertLitre(litre, "d3")
+		ConvertLitre(litre, "cm3")
+	}
+}
+
+func BenchmarkConvM(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var tocalc float64 = 10
+		ConvM(tocalc, "dm")
+	}
+}
+
+func BenchmarkConvMArea(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var tocalc float64 = 10
+		ConvMArea(tocalc, "dam2")
+	}
+}
+
+func BenchmarkConvMCubic(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		var tocalc float64 = 10
+		ConvMCubic(tocalc, "km3")
 	}
 }
