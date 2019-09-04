@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 3!</title>
+</head>
+
+<body>
+    {{range .}}
+    <p>
+        <b>Restaurant: </b>{{.Name}}<br>
+        <b>Menu: </b><br>
+
+        <b>Breakfast:</b><br><br>
+        <b>Dish: </b>{{.Menu.Breakfast.Dish}}<br>
+        <b>Price: </b>{{.Menu.Breakfast.Price}}<br>
+        <b>Time served: </b><br>
+        <b>From: </b>{{.Menu.Breakfast.ServedFrom}}<b> To: </b>{{.Menu.Breakfast.ServedUntil}}<br>
+
+        <b>Lunch:</b><br><br>
+        <b>Dish: </b>{{.Menu.Lunch.Dish}}<br>
+        <b>Price: </b>{{.Menu.Lunch.Price}}<br>
+        <b>Time served: </b><br>
+        <b>From: </b>{{.Menu.Lunch.ServedFrom}}<b> To: </b>{{.Menu.Lunch.ServedUntil}}<br>
+
+        <b>Dinner:</b><br><br>
+        <b>Dish: </b>{{.Menu.Dinner.Dish}}<br>
+        <b>Price: </b>{{.Menu.Dinner.Price}}<br>
+        <b>Time served: </b><br>
+        <b>From: </b>{{.Menu.Dinner.ServedFrom}}<b> To: </b>{{.Menu.Dinner.ServedUntil}}<br>
+    </p>
+    {{end}}
+</body>
+
+</html>

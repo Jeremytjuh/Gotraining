@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My own site!</title>
+    <style>
+        body {
+            background-color: #0097ab;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>{{range $i, $v := .}}
+            <h1>Hello {{$v.Fname}} {{$v.Lname}}!</h1>
+            <p>You are {{$v.Age}} years old</p>
+            {{end}}
+        </p>
+    </div>
+</body>
+
+</html>
