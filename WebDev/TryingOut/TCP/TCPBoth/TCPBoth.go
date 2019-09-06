@@ -28,8 +28,28 @@ func handle(connection net.Conn) {
 	scanner := bufio.NewScanner(connection)
 	for scanner.Scan() {
 		line := scanner.Text()
-		fmt.Println(line)
-		fmt.Fprintf(connection, "I heard you say: %s\n", line)
+		fmt.Printf("Client said: %s\n", line)
+		switch line {
+		case "Hello":
+			fmt.Fprint(connection, "Server said: Hello! How are you doing?\n")
+		case "Bad":
+			fmt.Fprint(connection, "That's not good. How come?\n")
+		case "Bad...":
+			fmt.Fprint(connection, "That's not good. How come?\n")
+		case "Great":
+			fmt.Fprint(connection, "Amazing!\n")
+		case "Great!":
+			fmt.Fprint(connection, "Amazing!\n")
+		case "Amazing":
+			fmt.Fprint(connection, "Wonderful!\n")
+		case "Amazing!":
+			fmt.Fprint(connection, "Wonderful!\n")
+		case "How are you doing?":
+			fmt.Fprint(connection, "Server said: I'm doing great! Thanks for asking!\n")
+		default:
+			fmt.Fprint(connection, "Server said: I did not catch that, could you please rephrase that?\n")
+		}
+		// fmt.Fprintf(connection, "I heard you say: %s\n", line)
 	}
 	defer connection.Close()
 }

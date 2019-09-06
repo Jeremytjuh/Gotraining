@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            text-align: center;
+            color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>On this site you can either increase or decrease the number</h1>
+        <h2>Number: {{.}}</h2>
+    </div>
+    <div>
+        <form method="POST">
+            <input type="submit" name="increase" value="Increase">
+            <input type="submit" name="decrease" value="Decrease">
+        </form>
+    </div>
+</body>
+
+</html>
