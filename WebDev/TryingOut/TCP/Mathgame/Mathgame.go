@@ -38,17 +38,80 @@ func handle(con net.Conn) {
 	for scanner.Scan() {
 		li := strings.ToLower(scanner.Text())
 		fw := strings.Fields(li)
-		if fw[0] == "start" {
-			fmt.Println("Game has been started")
-			fmt.Fprintf(con, "You've started the game\n\n")
-			rand.Seed(time.Now().UnixNano())
-			startgame(rand.Intn(4), con)
-		} else if fw[0] == "tutorial" {
-			fmt.Println("Tutorial has been requested")
-			fmt.Fprintln(con, "The game works as follows, you begin with starting the game, then the game randomly selects a gamemode")
-		} else {
-			fmt.Println("Invalid command has been entered, command: ", fw[0])
-			fmt.Fprintln(con, `Invalid command. Type "Start" to start the game! And "Tutorial" for the tutorial`)
+		if len(fw) != 0 {
+			if fw[0] == "start" {
+				fmt.Println("Game has been started")
+				fmt.Fprintf(con, "You've started the game\n\n")
+				rand.Seed(time.Now().UnixNano())
+				startgame(rand.Intn(4), con)
+			} else if fw[0] == "tutorial" {
+				fmt.Println("Tutorial has been requested")
+				fmt.Fprintf(con, "The game works as follows, you begin with starting the game, then the game randomly selects a gamemode. The gamemodes being Add, Subtract, Multiply, Divide.\nNONE OF THE COMMANDS ARE CASE SENSITIVE")
+			} else if fw[0] == "startmode" {
+				if len(fw) >= 2 {
+					switch fw[1] {
+					case "add":
+						fmt.Println("Gamemode Add has been started")
+						fmt.Fprintf(con, "You've started gamemode Add\n\n")
+						startgame(1, con)
+					case "subtract":
+						fmt.Println("Gamemode Subtract has been started")
+						fmt.Fprintf(con, "You've started gamemode Substract\n\n")
+						startgame(2, con)
+					case "multiply":
+						fmt.Println("Gamemode Multiply has been started")
+						fmt.Fprintf(con, "You've started gamemode Multiply\n\n")
+						startgame(3, con)
+					case "divide":
+						fmt.Println("Gamemode Divide has been started")
+						fmt.Fprintf(con, "You've started gamemode Divide\n\n")
+						startgame(4, con)
+					}
+				} else {
+					fmt.Println("Invalid gamemode has been entered, command: ", fw[0])
+					fmt.Fprintf(con, "Invalid gamemode, use help StartMode for more information\n\n")
+				}
+			} else if fw[0] == "help" {
+				if len(fw) >= 2 {
+					switch fw[1] {
+					case "start":
+						fmt.Println("Help start has been requested")
+						fmt.Fprintf(con, `You can use the command "Start" to start a random gamemode`)
+						fmt.Fprintf(con, "\n\n")
+					case "tutorial":
+						fmt.Println("Help tutorial has been requested")
+						fmt.Fprintf(con, `You can use the command "Tutorial" to request the tutorial, this will explain the basics of the game`)
+						fmt.Fprintf(con, "\n\n")
+					case "startmode":
+						fmt.Println("Help startmode has been requested")
+						fmt.Fprintf(con, `You can use the command "StartMode" together with either "Add", "Substract", "Multiply" or "Divide" to start the corresponding gamemode`)
+						fmt.Fprintf(con, "\n\n")
+					case "information":
+						fmt.Println("Help information has been requested")
+						fmt.Fprintf(con, `You can use the command "Information" to request some basic information on why this game was created\`)
+						fmt.Fprintf(con, "\n\n")
+					case "help":
+						fmt.Println("Help help has been requested")
+						fmt.Fprintf(con, `All help commands:
+				"Help Start"
+				"Help Tutorial"
+				"Help StartMode"
+				"Help Information"
+				"Help Help"`)
+						fmt.Fprintf(con, "\n\n")
+					}
+				} else {
+					fmt.Println("Invalid gamemode has been entered, command: ", fw[0])
+					fmt.Fprintf(con, "Invalid help, use help help for more information\n\n")
+				}
+			} else if fw[0] == "information" {
+				fmt.Println("Information has been requested")
+				fmt.Fprintf(con, "This game was made to further play with tcp shit -Jeremytjuh\n\n")
+			} else {
+				fmt.Println("Invalid command has been entered, command: ", fw[0])
+				fmt.Fprintln(con, `Invalid command. Type "Help Help" for a list of all the commands`)
+				fmt.Fprintf(con, "\n\n")
+			}
 		}
 	}
 }
