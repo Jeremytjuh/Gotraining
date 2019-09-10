@@ -90,6 +90,14 @@ func handle(con net.Conn) {
 						fmt.Println("Help information has been requested")
 						fmt.Fprintf(con, `You can use the command "Information" to request some basic information on why this game was created\`)
 						fmt.Fprintf(con, "\n\n")
+					case "quit":
+						fmt.Println("Help quit has been requested")
+						fmt.Fprintf(con, `You can use the command "quit" to quit the game\`)
+						fmt.Fprintf(con, "\n\n")
+					case "exit":
+						fmt.Println("Help quit has been requested")
+						fmt.Fprintf(con, `You can use the command "exit" to exit the game\`)
+						fmt.Fprintf(con, "\n\n")
 					case "help":
 						fmt.Println("Help help has been requested")
 						fmt.Fprintf(con, `All help commands:
@@ -97,9 +105,15 @@ func handle(con net.Conn) {
 				"Help Tutorial"
 				"Help StartMode"
 				"Help Information"
-				"Help Help"`)
+				"Help Help
+				Help Quit
+				Help Exit"`)
 						fmt.Fprintf(con, "\n\n")
 					}
+				} else if fw[0] == "quit" || fw[0] == "exit" {
+					fmt.Println("Exit requested")
+					fmt.Fprintf(con, "Quitting game")
+					con.Close()
 				} else {
 					fmt.Println("Invalid gamemode has been entered, command: ", fw[0])
 					fmt.Fprintf(con, "Invalid help, use help help for more information\n\n")
