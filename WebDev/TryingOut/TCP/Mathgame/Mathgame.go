@@ -42,7 +42,7 @@ func handle(con net.Conn) {
 			fmt.Println("Game has been started")
 			fmt.Fprintf(con, "You've started the game\n\n")
 			rand.Seed(time.Now().UnixNano())
-			startgame(4, con)
+			startgame(rand.Intn(4), con)
 		} else if fw[0] == "tutorial" {
 			fmt.Println("Tutorial has been requested")
 			fmt.Fprintln(con, "The game works as follows, you begin with starting the game, then the game randomly selects a gamemode")
@@ -77,20 +77,22 @@ func add(con net.Conn) {
 		scanner := bufio.NewScanner(con)
 		for scanner.Scan() {
 			typedvalue := scanner.Text()
-			val, valerr := strconv.ParseInt(typedvalue, 10, 64)
-			if valerr != nil {
-				log.Println("Scanner error: ", valerr)
-			} else {
-				if val == int64(answer) {
-					fmt.Println("Correct")
-					fmt.Fprintf(con, "Correct answer!!!\n\n")
-					correct++
-					break
+			if typedvalue != "" {
+				val, valerr := strconv.ParseInt(typedvalue, 10, 64)
+				if valerr != nil {
+					log.Println("Scanner error: ", valerr)
 				} else {
-					fmt.Println("Incorrect")
-					fmt.Fprintf(con, "Incorrect answer...\n\n")
-					incorrect++
-					break
+					if val == int64(answer) {
+						fmt.Println("Correct")
+						fmt.Fprintf(con, "Correct answer!!!\n\n")
+						correct++
+						break
+					} else {
+						fmt.Println("Incorrect")
+						fmt.Fprintf(con, "Incorrect answer...\n\n")
+						incorrect++
+						break
+					}
 				}
 			}
 		}
@@ -114,20 +116,22 @@ func subtract(con net.Conn) {
 		scanner := bufio.NewScanner(con)
 		for scanner.Scan() {
 			typedvalue := scanner.Text()
-			val, valerr := strconv.ParseInt(typedvalue, 10, 64)
-			if valerr != nil {
-				log.Println("Scanner error: ", valerr)
-			} else {
-				if val == int64(answer) {
-					fmt.Println("Correct")
-					fmt.Fprintf(con, "Correct answer!!!\n\n")
-					correct++
-					break
+			if typedvalue != "" {
+				val, valerr := strconv.ParseInt(typedvalue, 10, 64)
+				if valerr != nil {
+					log.Println("Scanner error: ", valerr)
 				} else {
-					fmt.Println("Incorrect")
-					fmt.Fprintf(con, "Incorrect answer...\n\n")
-					incorrect++
-					break
+					if val == int64(answer) {
+						fmt.Println("Correct")
+						fmt.Fprintf(con, "Correct answer!!!\n\n")
+						correct++
+						break
+					} else {
+						fmt.Println("Incorrect")
+						fmt.Fprintf(con, "Incorrect answer...\n\n")
+						incorrect++
+						break
+					}
 				}
 			}
 		}
@@ -148,20 +152,22 @@ func multiply(con net.Conn) {
 		scanner := bufio.NewScanner(con)
 		for scanner.Scan() {
 			typedvalue := scanner.Text()
-			val, valerr := strconv.ParseInt(typedvalue, 10, 64)
-			if valerr != nil {
-				log.Println("Scanner error: ", valerr)
-			} else {
-				if val == int64(answer) {
-					fmt.Println("Correct")
-					fmt.Fprintf(con, "Correct answer!!!\n\n")
-					correct++
-					break
+			if typedvalue != "" {
+				val, valerr := strconv.ParseInt(typedvalue, 10, 64)
+				if valerr != nil {
+					log.Println("Scanner error: ", valerr)
 				} else {
-					fmt.Println("Incorrect")
-					fmt.Fprintf(con, "Incorrect answer...\n\n")
-					incorrect++
-					break
+					if val == int64(answer) {
+						fmt.Println("Correct")
+						fmt.Fprintf(con, "Correct answer!!!\n\n")
+						correct++
+						break
+					} else {
+						fmt.Println("Incorrect")
+						fmt.Fprintf(con, "Incorrect answer...\n\n")
+						incorrect++
+						break
+					}
 				}
 			}
 		}
@@ -183,20 +189,22 @@ func divide(con net.Conn) {
 		scanner := bufio.NewScanner(con)
 		for scanner.Scan() {
 			typedvalue := scanner.Text()
-			val, valerr := strconv.ParseInt(typedvalue, 10, 64)
-			if valerr != nil {
-				log.Println("Scanner error: ", valerr)
-			} else {
-				if val == int64(answer) {
-					fmt.Println("Correct")
-					fmt.Fprintf(con, "Correct answer!!!\n\n")
-					correct++
-					break
+			if typedvalue != "" {
+				val, valerr := strconv.ParseInt(typedvalue, 10, 64)
+				if valerr != nil {
+					log.Println("Scanner error: ", valerr)
 				} else {
-					fmt.Println("Incorrect")
-					fmt.Fprintf(con, "Incorrect answer...\n\n")
-					incorrect++
-					break
+					if val == int64(answer) {
+						fmt.Println("Correct")
+						fmt.Fprintf(con, "Correct answer!!!\n\n")
+						correct++
+						break
+					} else {
+						fmt.Println("Incorrect")
+						fmt.Fprintf(con, "Incorrect answer...\n\n")
+						incorrect++
+						break
+					}
 				}
 			}
 		}
