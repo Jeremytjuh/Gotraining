@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package CalcTest;
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+service Calculate {
+  	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
+		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
+		external_docs: {
+			url: "https://github.com/grpc-ecosystem/grpc-gateway";
+			description: "Find out more about EchoService";
+		}
+	};
+
+  rpc Calculate (CalcRequest) returns (CalcReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  }
+}
+
+message CalcRequest {
+  string type = 1;
+  int32 num1 = 2;
+  int32 num2 = 3;
+}
+
+message CalcReply {
+  string message = 1;
+}

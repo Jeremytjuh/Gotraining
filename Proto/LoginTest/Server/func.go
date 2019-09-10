@@ -1,9 +1,10 @@
 package main
 
-// import "login/LoginTest"
+import pb "login/LoginTest"
 
-func Login (username, password string) bool {
-	if username == "Admin" && password == "Root" {
+// Login used to login
+func Login(m *pb.LoginRequest) bool {
+	if m.Username == "Admin" && m.Password == "Root" {
 		return true
 	} else {
 		return false
