@@ -1,6 +1,6 @@
 package main
 
-import pb "github.com/Jeremytjuh/GoTraining/Proto/LoginTest/LoginTest"
+import pb "login/LoginTest"
 
 // Login used to login
 func Login(m *pb.LoginRequest) bool {
