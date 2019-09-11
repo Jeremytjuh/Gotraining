@@ -1,6 +1,9 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/Jeremytjuh/GoTraining v0.0.0-20190910123858-805659623f9a h1:/5/Bj/5jg7NCquqodpqHJdEPB8OQW8osMqZLXgYk6Rw=
+github.com/Jeremytjuh/GoTraining/Proto/LoginTest v0.0.0-20190910123858-805659623f9a h1:Oe1rWvexdkjeb3EnTSZyX6YObszRUzs+08ktjrXMYW4=
 github.com/Jeremytjuh/Gotraining/Proto v0.0.0-20190909113737-dfdf3ee41a62 h1:THcybW7l5gdSAT/0Ms0j2hZjp9y7u25Dhe6AJjtdYbw=
+github.com/Jeremytjuh/Gotraining/Proto/LoginTest v0.0.0-20190910123858-805659623f9a h1:B52+8PakAZWiNO4x4Ye5kks1O2su1av3sSM2MabgTMg=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b h1:VKtxabqXZkF25pY9ekfRL6a582T4P37/31XEstQ5p58=
@@ -8,6 +11,8 @@ github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfU
 github.com/golang/mock v1.1.1/go.mod h1:oTYuIxOrZwtPieC+H1uAHpcLFnEyAGVDL/k47Jfbm0A=
 github.com/golang/protobuf v1.2.0 h1:P3YflyNX/ehuJFLhxviNdFxQPkGK5cDcApsge1SqnvM=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/golang/protobuf v1.3.2 h1:6nsPYzhq5kReh6QImI3k5qWzO4PEbvbIW2cwSfR/6xs=
+github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
 github.com/grpc-ecosystem/grpc-gateway v1.11.1 h1:/dBYI+n4xIL+Y9SKXQrjlKTmJJDwCSlNLRwZ5nBhIek=
 github.com/grpc-ecosystem/grpc-gateway v1.11.1/go.mod h1:vNeuVxBJEsws4ogUvrchl83t/GYV9WGTSLVdBhOQFDY=

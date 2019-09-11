@@ -8,13 +8,13 @@ import (
 // Calculate multiplies 2 values and returns the outcome
 func Calculate(m *pb.CalcRequest) (int32, error) {
 	switch m.Type {
-	case "Sum":
+	case "Add":
 		return m.Num1 + m.Num2, nil
-	case "Diff":
+	case "Subtract":
 		return m.Num1 - m.Num2, nil
-	case "Time":
+	case "Multiply":
 		return m.Num1 * m.Num2, nil
-	case "Div":
+	case "Divide":
 		return m.Num1 / m.Num2, nil
 	default:
 		return 0, errors.New("Invalid identifier, the correct identifiers are: Sum, Diff, Time, Div")

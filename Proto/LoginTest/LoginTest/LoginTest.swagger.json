@@ -49,10 +49,6 @@
       "properties": {
         "message": {
           "type": "string"
-        },
-        "acces": {
-          "type": "boolean",
-          "format": "boolean"
         }
       },
       "title": "The response message containing the greetings"

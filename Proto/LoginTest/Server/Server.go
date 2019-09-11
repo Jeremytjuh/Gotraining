@@ -24,9 +24,9 @@ package main
 import (
 	"context"
 	// "fmt"
+	pb "github.com/Jeremytjuh/Gotraining/Proto/LoginTest/LoginTest"
 	"google.golang.org/grpc"
 	"log"
-	pb "login/LoginTest"
 	"net"
 )
 

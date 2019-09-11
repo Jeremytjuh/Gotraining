@@ -1,12 +1,14 @@
 package main
 
-import pb "login/LoginTest"
+import pb "github.com/Jeremytjuh/GoTraining/Proto/LoginTest/LoginTest"
 
 // Login used to login
 func Login(m *pb.LoginRequest) bool {
+	var tof bool
 	if m.Username == "Admin" && m.Password == "Root" {
-		return true
+		tof = true
 	} else {
-		return false
+		tof = false
 	}
+	return tof
 }

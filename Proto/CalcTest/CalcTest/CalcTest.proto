@@ -6,14 +6,6 @@ import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 service Calculate {
-  	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
-		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
-		external_docs: {
-			url: "https://github.com/grpc-ecosystem/grpc-gateway";
-			description: "Find out more about EchoService";
-		}
-	};
-
   rpc Calculate (CalcRequest) returns (CalcReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
@@ -22,12 +14,14 @@ service Calculate {
   }
 }
 
+// Sends a Request that contains the type of calculation you want to execute and two numbers the function will calculate with
 message CalcRequest {
   string type = 1;
   int32 num1 = 2;
   int32 num2 = 3;
 }
 
+// Receives a Reply from the Calculation function, this message is a string that includes the answer corresponding to the calculation of CalcRequest
 message CalcReply {
   string message = 1;
 }
