@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "markdown.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/example/echo": {
+      "post": {
+        "summary": "Login",
+        "description": "## I can use this to document Login\n### Test",
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/LoginTestLoginReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginTestLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Login"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "LoginTestLoginReply": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "access": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "description": "## I can use this to document LoginReply",
+      "title": "LoginReply"
+    },
+    "LoginTestLoginRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "description": "## I can use this to document LoginRequest",
+      "title": "LoginRequest"
+    }
+  }
+}
