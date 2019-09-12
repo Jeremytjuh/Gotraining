@@ -26,9 +26,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// LoginRequest
-//
-// ## I can use this to document LoginRequest
+// {{LoginRequest}}
 type LoginRequest struct {
 	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
@@ -76,9 +74,7 @@ func (m *LoginRequest) GetPassword() string {
 	return ""
 }
 
-// LoginReply
-//
-// ## I can use this to document LoginReply
+// {{LoginReply}}
 type LoginReply struct {
 	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	Access               bool     `protobuf:"varint,2,opt,name=access,proto3" json:"access,omitempty"`
@@ -175,8 +171,34 @@ const _ = grpc.SupportPackageIsVersion4
 type LoginClient interface {
 	// Login
 	//
-	// ## I can use this to document Login
-	// ### Test
+	// # RPC Login
+	//
+	// Here I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call "Definition of RPC") **Login**.\
+	// This *RPC* uses the argument LoginRequest and returns a LoginReply.\
+	// Here is a code snippit of the login function with some dummy login credentials:
+	// ```go
+	// package main
+	//
+	// import pb "login/LoginTest"
+	//
+	// // Login used to login
+	// func Login(m *pb.LoginRequest) bool {
+	// 	var tof bool
+	// 	if m.Username == "Admin" && m.Password == "Root" {
+	// 		tof = true
+	// 	} else {
+	// 		tof = false
+	// 	}
+	// 	return tof
+	// }
+	// ```
+	// # Gopher
+	// While we're at it, let's add a dancing gopher!\
+	// ![alt text](https://camo.githubusercontent.com/c70f18274a81ee98dca1c116b68d5a35847b2e65/687474703a2f2f7374617469632e76656c76657463616368652e6f72672f70616765732f323031382f30362f31332f70617274792d676f706865722f64616e63696e672d676f706865722e676966 "Dancing Gopher")
+	//
+	// # Documentation
+	// All of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\
+	// ![alt text](Protofile.png "Proto file")
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginReply, error)
 }
 
@@ -201,8 +223,34 @@ func (c *loginClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.
 type LoginServer interface {
 	// Login
 	//
-	// ## I can use this to document Login
-	// ### Test
+	// # RPC Login
+	//
+	// Here I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call "Definition of RPC") **Login**.\
+	// This *RPC* uses the argument LoginRequest and returns a LoginReply.\
+	// Here is a code snippit of the login function with some dummy login credentials:
+	// ```go
+	// package main
+	//
+	// import pb "login/LoginTest"
+	//
+	// // Login used to login
+	// func Login(m *pb.LoginRequest) bool {
+	// 	var tof bool
+	// 	if m.Username == "Admin" && m.Password == "Root" {
+	// 		tof = true
+	// 	} else {
+	// 		tof = false
+	// 	}
+	// 	return tof
+	// }
+	// ```
+	// # Gopher
+	// While we're at it, let's add a dancing gopher!\
+	// ![alt text](https://camo.githubusercontent.com/c70f18274a81ee98dca1c116b68d5a35847b2e65/687474703a2f2f7374617469632e76656c76657463616368652e6f72672f70616765732f323031382f30362f31332f70617274792d676f706865722f64616e63696e672d676f706865722e676966 "Dancing Gopher")
+	//
+	// # Documentation
+	// All of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\
+	// ![alt text](Protofile.png "Proto file")
 	Login(context.Context, *LoginRequest) (*LoginReply, error)
 }
 
