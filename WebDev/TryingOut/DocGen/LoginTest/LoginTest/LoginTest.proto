@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package LoginTest;
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+// Service Login is the service that contains all of the rpc's necessary to Login
+service Login {
+  	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
+		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
+		external_docs: {
+			url: "https://github.com/grpc-ecosystem/grpc-gateway";
+			description: "Find out more about EchoService";
+		}
+  };
+
+// {{Login}}
+  rpc Login (LoginRequest) returns (LoginReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  }
+}
+
+// {{LoginRequest}}
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+// message LoginReply is the return value of rpc Login, this message contains a simple message.
+message LoginReply {
+  string message = 1;
+  bool access = 2;
+}

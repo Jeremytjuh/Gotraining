@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package LoginTest;
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+// Service Login is the service that contains all of the rpc's necessary to Login
+service Login {
+  	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
+		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
+		external_docs: {
+			url: "https://github.com/grpc-ecosystem/grpc-gateway";
+			description: "Find out more about EchoService";
+		}
+  };
+
+// # This is the documentation of Login
+// ## I can use this to document Login
+// ### Test
+  rpc Login (LoginRequest) returns (LoginReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  }
+}
+
+// # This is the documentation of LoginRequest
+// ## I can use this to document LoginRequest
