@@ -30,7 +30,7 @@ message LoginRequest {
   string password = 2;
 }
 
-// message LoginReply is the return value of rpc Login, this message contains a simple message.
+// {{LoginReply}}
 message LoginReply {
   string message = 1;
   bool access = 2;

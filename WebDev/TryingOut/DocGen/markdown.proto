@@ -28,3 +28,14 @@ service Login {
 
 // # This is the documentation of LoginRequest
 // ## I can use this to document LoginRequest
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+// # This is the documentation of LoginReply
+// ## I can use this to document LoginReply
+message LoginReply {
+  string message = 1;
+  bool access = 2;
+}

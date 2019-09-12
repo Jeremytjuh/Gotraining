@@ -40,12 +40,12 @@ func main() {
 func scanners(documentation, protofile string) (*bufio.Scanner, *bufio.Scanner) {
 	docreader, docreadererr := os.Open(documentation)
 	if docreadererr != nil {
-		fmt.Println("Doc read error occured: ", docreadererr)
+		log.Println("Doc read error occured: ", docreadererr)
 	}
 
 	pcreader, pcreadererr := os.Open(protofile)
 	if pcreadererr != nil {
-		fmt.Println("Proto read error occured: ", pcreadererr)
+		log.Println("Proto read error occured: ", pcreadererr)
 	}
 	return bufio.NewScanner(docreader), bufio.NewScanner(pcreader)
 }
