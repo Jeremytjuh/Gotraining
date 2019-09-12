@@ -1,12 +1,12 @@
 package main
 
 import (
-	pb "calc/CalcTest"
 	"errors"
+	pb "github.com/Jeremytjuh/Gotraining/Proto/CalcTest/CalcTest"
 )
 
 // Calculate multiplies 2 values and returns the outcome
-func Calculate(m *pb.CalcRequest) (int32, error) {
+func Calculate(m *pb.CalcRequest) (float64, error) {
 	switch m.Type {
 	case "Add":
 		return m.Num1 + m.Num2, nil

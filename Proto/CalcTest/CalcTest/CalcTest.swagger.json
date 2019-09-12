@@ -17,6 +17,8 @@
   "paths": {
     "/v1/example/echo": {
       "post": {
+        "summary": "Calculate",
+        "description": "Calculates with the arguments passed in through CalcRequest",
         "operationId": "Calculate",
         "responses": {
           "200": {
@@ -59,12 +61,12 @@
           "type": "string"
         },
         "num1": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number",
+          "format": "double"
         },
         "num2": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number",
+          "format": "double"
         }
       },
       "title": "Sends a Request that contains the type of calculation you want to execute and two numbers the function will calculate with"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "github.com/Jeremytjuh/GoTraining/Proto/CalcTest/CalcTest"
+	pb "github.com/Jeremytjuh/Gotraining/Proto/CalcTest/CalcTest"
 	"context"
 	"fmt"
 	"google.golang.org/grpc"

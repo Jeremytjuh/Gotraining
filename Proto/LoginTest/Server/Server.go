@@ -24,9 +24,9 @@ package main
 import (
 	"context"
 	// "fmt"
-	pb "login/LoginTest"
 	"google.golang.org/grpc"
 	"log"
+	pb "login/LoginTest"
 	"net"
 )
 
@@ -43,13 +43,14 @@ var counter int
 // SayHello implements helloworld.GreeterServer
 func (s *server) Login(ctx context.Context, in *pb.LoginRequest) (*pb.LoginReply, error) {
 	var message string
+	access := Login(in)
 	counter++
-	if Login(in) == true {
+	if access == true {
 		message = "Access granted, welcome " + in.Username
 	} else {
 		message = "Access denied, try other login details"
 	}
-	return &pb.LoginReply{Message: message}, nil
+	return &pb.LoginReply{Message: message, Access: access}, nil
 }
 
 func main() {

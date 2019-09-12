@@ -5,7 +5,7 @@ package LoginTest;
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
-// The greeting service definition.
+// Service Login is the service that contains all of the rpc's necessary to Login
 service Login {
   	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
 		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
@@ -13,9 +13,11 @@ service Login {
 			url: "https://github.com/grpc-ecosystem/grpc-gateway";
 			description: "Find out more about EchoService";
 		}
-	};
+  };
 
-  // Sends a greeting
+  // Login
+  //
+  // rpc Login is the Remote Procedure Call that takes a LoginRequest and returns a LoginReply.
   rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
@@ -24,12 +26,15 @@ service Login {
   }
 }
 
+// message LoginRequest is the argument that you give to Login, this message contains a string username and a string password.
+// These messages can be inputted to the server via a post method. This could be using Postman (for documentation/testing purposes) or via http.
 message LoginRequest {
   string username = 1;
   string password = 2;
 }
 
-// The response message containing the greetings
+// message LoginReply is the return value of rpc Login, this message contains a simple message.
 message LoginReply {
   string message = 1;
+  bool access = 2;
 }

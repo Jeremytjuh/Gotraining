@@ -17,7 +17,8 @@
   "paths": {
     "/v1/example/echo": {
       "post": {
-        "summary": "Sends a greeting",
+        "summary": "Login",
+        "description": "rpc Login is the Remote Procedure Call that takes a LoginRequest and returns a LoginReply",
         "operationId": "Login",
         "responses": {
           "200": {
@@ -49,9 +50,13 @@
       "properties": {
         "message": {
           "type": "string"
+        },
+        "access": {
+          "type": "boolean",
+          "format": "boolean"
         }
       },
-      "title": "The response message containing the greetings"
+      "description": "message LoginReply is the return value of rpc Login, this message contains a simple message."
     },
     "LoginTestLoginRequest": {
       "type": "object",
@@ -62,7 +67,8 @@
         "password": {
           "type": "string"
         }
-      }
+      },
+      "description": "message LoginRequest is the argument that you give to Login, this message contains a string username and a string password.\nThese messages can be inputted to the server via a post method. This could be using Postman (for documentation/testing purposes) or via http."
     }
   }
 }

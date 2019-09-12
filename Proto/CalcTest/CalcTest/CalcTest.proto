@@ -6,6 +6,9 @@ import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 service Calculate {
+  // Calculate
+  //
+  // Calculates with the arguments passed in through CalcRequest
   rpc Calculate (CalcRequest) returns (CalcReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
@@ -17,8 +20,8 @@ service Calculate {
 // Sends a Request that contains the type of calculation you want to execute and two numbers the function will calculate with
 message CalcRequest {
   string type = 1;
-  int32 num1 = 2;
-  int32 num2 = 3;
+  double num1 = 2;
+  double num2 = 3;
 }
 
 // Receives a Reply from the Calculation function, this message is a string that includes the answer corresponding to the calculation of CalcRequest
