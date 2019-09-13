@@ -44,7 +44,7 @@ service Login {
 // 
 // # Documentation
 // All of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\
-// ![alt text](Protofile.png "Proto file")
+// ![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png "Proto file")
   rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"

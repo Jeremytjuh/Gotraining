@@ -198,7 +198,7 @@ type LoginClient interface {
 	//
 	// # Documentation
 	// All of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\
-	// ![alt text](Protofile.png "Proto file")
+	// ![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png "Proto file")
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginReply, error)
 }
 
@@ -250,7 +250,7 @@ type LoginServer interface {
 	//
 	// # Documentation
 	// All of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\
-	// ![alt text](Protofile.png "Proto file")
+	// ![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png "Proto file")
 	Login(context.Context, *LoginRequest) (*LoginReply, error)
 }
 
