@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FuncTest</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: verdana;
+            background-color: grey;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        th {
+            background-color: rgba(185, 185, 185, 0.726);
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.726)
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Initials</th>
+                <th>Age</th>
+                <th>Dog age</th>
+                <th>Permission</th>
+            </tr>
+            {{range .Users}}
+            <tr>
+                <th>{{.Fname}} {{.Lname}}</th>
+                <td>{{initials .}}</td>
+                <td>{{.Age}}</td>
+                <td>{{dogAge .}}</td>
+                {{if hasPermission .}}
+                <td>X</td>
+                {{else}}
+                <td></td>
+                {{end}}
+            </tr>
+            {{end}}
+        </table>
+    </div>
+</body>
+
+</html>

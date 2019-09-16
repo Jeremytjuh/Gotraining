@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FuncTest</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: verdana;
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        {{if hasPermission .User "feature-a"}}
+        <h1>User w/ Feature-a: {{.}}</h1>
+        {{end}}
+
+        {{if hasPermission .User "feature-b"}}
+        <h1>User w/ Feature-b{{.}}</h1>
+        {{end}}
+    </div>
+</body>
+
+</html>
