@@ -9,7 +9,6 @@ import (
 
 func main() {
 	docscanner, pcscanner := scanners("documentation.md", "LoginTest/LoginTest/LoginTest.proto")
-	// os.Stdout, _ = os.Open("markdown.proto")
 	var insert bool
 	for docscanner.Scan() {
 		docline := docscanner.Text()
