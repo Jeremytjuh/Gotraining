@@ -15,7 +15,9 @@ service Login {
 		}
   };
 
-// {{import}}
+// Login
+//
+// {{import "documentation.md"}}
   rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
@@ -24,11 +26,15 @@ service Login {
   }
 }
 
+// LoginRequest
+//
+// {{import "documentation.md"}}
 message LoginRequest {
   string username = 1;
   string password = 2;
 }
 
+// {{import "documentation.md"}}
 message LoginReply {
   string message = 1;
   bool access = 2;

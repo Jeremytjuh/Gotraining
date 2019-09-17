@@ -1,5 +1,3 @@
-Login
-
 # RPC Login
 
 Here I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call "Definition of RPC") **Login**.\

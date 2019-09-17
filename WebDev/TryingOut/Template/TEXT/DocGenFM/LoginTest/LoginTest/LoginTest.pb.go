@@ -26,8 +26,9 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// message LoginRequest is the argument that you give to Login, this message contains a string username and a string password.
-// These messages can be inputted to the server via a post method. This could be using Postman (for documentation/testing purposes) or via http.
+// LoginRequest
+//
+// {{import "documentation.md"}}
 type LoginRequest struct {
 	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
@@ -75,7 +76,7 @@ func (m *LoginRequest) GetPassword() string {
 	return ""
 }
 
-// message LoginReply is the return value of rpc Login, this message contains a simple message.
+// {{import "documentation.md"}}
 type LoginReply struct {
 	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	Access               bool     `protobuf:"varint,2,opt,name=access,proto3" json:"access,omitempty"`
@@ -172,7 +173,7 @@ const _ = grpc.SupportPackageIsVersion4
 type LoginClient interface {
 	// Login
 	//
-	// rpc Login is the Remote Procedure Call that takes a LoginRequest and returns a LoginReply.
+	// {{import "documentation.md"}}
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginReply, error)
 }
 
@@ -197,7 +198,7 @@ func (c *loginClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.
 type LoginServer interface {
 	// Login
 	//
-	// rpc Login is the Remote Procedure Call that takes a LoginRequest and returns a LoginReply.
+	// {{import "documentation.md"}}
 	Login(context.Context, *LoginRequest) (*LoginReply, error)
 }
 

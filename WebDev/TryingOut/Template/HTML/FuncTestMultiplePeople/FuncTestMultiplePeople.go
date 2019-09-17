@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -25,7 +26,8 @@ type User struct {
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.New("tpl.html").Funcs(template.FuncMap{
+	var err error
+	tpl, err = template.New("tpl.html").Funcs(template.FuncMap{
 		"hasPermission": func(user User) bool {
 			if user.Permission == true {
 				return true
@@ -40,7 +42,11 @@ func init() {
 		"dogAge": func(user User) int {
 			return user.Age * 7
 		},
-	}).ParseFiles("tpl.html"))
+	}).ParseFiles("tpl.html")
+
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func main() {
