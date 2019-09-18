@@ -18,7 +18,7 @@
     "/v1/example/echo": {
       "post": {
         "summary": "Login",
-        "description": "# RPC Login\n\nHere I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call \"Definition of RPC\") **Login**.\\\nThis *RPC* uses the argument LoginRequest and returns a LoginReply.\\\nHere is a code snippit of the login function with some dummy login credentials:\n```go\npackage main\n\nimport pb \"login/LoginTest\"\n\n// Login used to login\nfunc Login(m *pb.LoginRequest) bool {\n\tvar tof bool\n\tif m.Username == \"Admin\" \u0026\u0026 m.Password == \"Root\" {\n\t\ttof = true\n\t} else {\n\t\ttof = false\n\t}\n\treturn tof\n}\n```\n# Gopher\nWhile we're at it, let's add a dancing gopher!\\\n![alt text](https://camo.githubusercontent.com/c70f18274a81ee98dca1c116b68d5a35847b2e65/687474703a2f2f7374617469632e76656c76657463616368652e6f72672f70616765732f323031382f30362f31332f70617274792d676f706865722f64616e63696e672d676f706865722e676966 \"Dancing Gopher\")\n\n# Documentation\nAll of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\\\n![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png \"Proto file\")",
+        "description": "{{import \"documentation.md\"}}",
         "operationId": "Login",
         "responses": {
           "200": {
@@ -56,8 +56,7 @@
           "format": "boolean"
         }
       },
-      "description": "Here I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call \"Definition of RPC\") **Login**.\\\nThis *RPC* uses the argument LoginRequest and returns a LoginReply.\\\nHere is a code snippit of the login function with some dummy login credentials:\n```go\npackage main\n\nimport pb \"login/LoginTest\"\n\n// Login used to login\nfunc Login(m *pb.LoginRequest) bool {\n\tvar tof bool\n\tif m.Username == \"Admin\" \u0026\u0026 m.Password == \"Root\" {\n\t\ttof = true\n\t} else {\n\t\ttof = false\n\t}\n\treturn tof\n}\n```\n# Gopher\nWhile we're at it, let's add a dancing gopher!\\\n![alt text](https://camo.githubusercontent.com/c70f18274a81ee98dca1c116b68d5a35847b2e65/687474703a2f2f7374617469632e76656c76657463616368652e6f72672f70616765732f323031382f30362f31332f70617274792d676f706865722f64616e63696e672d676f706865722e676966 \"Dancing Gopher\")\n\n# Documentation\nAll of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\\\n![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png \"Proto file\")",
-      "title": "# RPC Login"
+      "title": "{{import \"documentation.md\"}}"
     },
     "LoginTestLoginRequest": {
       "type": "object",
@@ -69,7 +68,7 @@
           "type": "string"
         }
       },
-      "description": "# RPC Login\n\nHere I have some useful information about the [*Remote Procedure Call*](https://en.wikipedia.org/wiki/Remote_procedure_call \"Definition of RPC\") **Login**.\\\nThis *RPC* uses the argument LoginRequest and returns a LoginReply.\\\nHere is a code snippit of the login function with some dummy login credentials:\n```go\npackage main\n\nimport pb \"login/LoginTest\"\n\n// Login used to login\nfunc Login(m *pb.LoginRequest) bool {\n\tvar tof bool\n\tif m.Username == \"Admin\" \u0026\u0026 m.Password == \"Root\" {\n\t\ttof = true\n\t} else {\n\t\ttof = false\n\t}\n\treturn tof\n}\n```\n# Gopher\nWhile we're at it, let's add a dancing gopher!\\\n![alt text](https://camo.githubusercontent.com/c70f18274a81ee98dca1c116b68d5a35847b2e65/687474703a2f2f7374617469632e76656c76657463616368652e6f72672f70616765732f323031382f30362f31332f70617274792d676f706865722f64616e63696e672d676f706865722e676966 \"Dancing Gopher\")\n\n# Documentation\nAll of this **documentation** is stored inside of the **documentation.md** file and gets generated together with its corresponding **proto** file.\\\n![alt text](https://raw.githubusercontent.com/Jeremytjuh/Gotraining/master/WebDev/TryingOut/DocGen/Protofile.png \"Proto file\")",
+      "description": "{{import \"documentation.md\"}}",
       "title": "LoginRequest"
     }
   }
