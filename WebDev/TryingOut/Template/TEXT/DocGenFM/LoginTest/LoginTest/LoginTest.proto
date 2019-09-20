@@ -5,7 +5,6 @@ package LoginTest;
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
-// Service Login is the service that contains all of the rpc's necessary to Login
 service Login {
   	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_tag) = {
 		description: "ABitOfEverythingService description -- which should not be used in place of the documentation comment!"
@@ -17,7 +16,7 @@ service Login {
 
 // Login
 //
-// {{import "documentation.md"}}
+// {{gendoc "LoginTest.proto"}}
   rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
@@ -27,15 +26,17 @@ service Login {
 }
 
 // LoginRequest
-//
-// {{import "documentation.md"}}
 message LoginRequest {
   string username = 1;
   string password = 2;
 }
 
-// {{import "documentation.md"}}
+// LoginReply
 message LoginReply {
   string message = 1;
   bool access = 2;
+}
+
+message TestMessage {
+  
 }
