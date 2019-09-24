@@ -27,6 +27,8 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // LoginRequest
+//
+// The message {{.Name}} contains {{len .Fields}}
 type LoginRequest struct {
 	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
@@ -122,6 +124,7 @@ func (m *LoginReply) GetAccess() bool {
 	return false
 }
 
+// {{import}}
 type TestMessage struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -204,7 +207,7 @@ const _ = grpc.SupportPackageIsVersion4
 type LoginClient interface {
 	// Login
 	//
-	// {{gendoc "LoginTest.proto"}}
+	// The {{.Name}} service is availible over {{len .Methods}} methods. {{range .Methods}}The {{.MethodDescriptorProto.Name}} method accepts a {{$length := len .Bindings}}{{if eq $length 1}}{{$index := index .Bindings 0}}{{$index.HTTPMethod}} message and returns a {{.ResponseType.Name}} message {{else}}You sir, just entered the else club{{end}}{{end}}
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginReply, error)
 }
 
@@ -229,7 +232,7 @@ func (c *loginClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.
 type LoginServer interface {
 	// Login
 	//
-	// {{gendoc "LoginTest.proto"}}
+	// The {{.Name}} service is availible over {{len .Methods}} methods. {{range .Methods}}The {{.MethodDescriptorProto.Name}} method accepts a {{$length := len .Bindings}}{{if eq $length 1}}{{$index := index .Bindings 0}}{{$index.HTTPMethod}} message and returns a {{.ResponseType.Name}} message {{else}}You sir, just entered the else club{{end}}{{end}}
 	Login(context.Context, *LoginRequest) (*LoginReply, error)
 }
 

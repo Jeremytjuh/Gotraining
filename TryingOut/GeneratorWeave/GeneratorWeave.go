@@ -93,35 +93,34 @@ func generateTestFile(packagename string, functions []string) {
 func generateNewTestFile(filename, packagename string, functions []string) {
 	file, err := os.Create(filename)
 	if err != nil {
-		log.Fatalf("Error creating file \"%s\":", filename, err)
+		log.Fatalf("Error creating file \"%s\": %v", filename, err)
 	}
-	imports := `
-        
+	imports := `  
 import (
+    "context"
+    "fmt"
+    "net/http"
     "testing"
 )
 `
 
+	sloice := strings.Split(packagename, "")
+	strings.ToUpper(sloice[1])
+	strings.Join(sloice, "")
+
 	file.WriteString(fmt.Sprintf("package %s %s", packagename, imports))
 
 	for _, v := range functions {
-		file.WriteString("\nfunc Test" + v + "(t *testing.Testing){\n\n}\n")
+		file.WriteString(fmt.Sprintf("\nfunc (s *%s) Test%s(){\n\n}\n", typename, v))
 	}
 
-	for _, v := range functions {
-		file.WriteString("\nfunc Example" + v + "(){\n\n}\n")
-	}
-
-	for _, v := range functions {
-		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
-	}
 	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
 }
 
 func overwriteOldTestFile(filename, packagename string, functions []string) {
 	file, err := os.OpenFile(filename, os.O_RDWR, 0755)
 	if err != nil {
-		log.Fatalf("Error opening %s")
+		log.Fatalf("Error opening %s", filename)
 	}
 	imports := `
         
@@ -132,15 +131,7 @@ import (
 	file.WriteString(fmt.Sprintf("package %s %s", packagename, imports))
 
 	for _, v := range functions {
-		file.WriteString("\nfunc Test" + v + "(t *testing.Testing){\n\n}\n")
-	}
-
-	for _, v := range functions {
-		file.WriteString("\nfunc Example" + v + "(){\n\n}\n")
-	}
-
-	for _, v := range functions {
-		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
+		file.WriteString(fmt.Sprintf("\nfunc Test%s(){\n\n}\n", v))
 	}
 	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
 }

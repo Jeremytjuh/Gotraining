@@ -4,6 +4,7 @@ github.com/Jeremytjuh/GoTraining v0.0.0-20190910123858-805659623f9a h1:/5/Bj/5jg
 github.com/Jeremytjuh/GoTraining/Proto/LoginTest v0.0.0-20190910123858-805659623f9a h1:Oe1rWvexdkjeb3EnTSZyX6YObszRUzs+08ktjrXMYW4=
 github.com/Jeremytjuh/Gotraining/Proto v0.0.0-20190909113737-dfdf3ee41a62 h1:THcybW7l5gdSAT/0Ms0j2hZjp9y7u25Dhe6AJjtdYbw=
 github.com/Jeremytjuh/Gotraining/Proto/LoginTest v0.0.0-20190910123858-805659623f9a h1:B52+8PakAZWiNO4x4Ye5kks1O2su1av3sSM2MabgTMg=
+github.com/Jeremytjuh/Gotraining/WebDev/TryingOut/Template/TEXT/DocGenFM/LoginTest v0.0.0-20190920133906-1f1fa8c704b5 h1:w/TBQUB91t4qxa/JGj0TDhGc30YXjWR1OIr04xFHhug=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=

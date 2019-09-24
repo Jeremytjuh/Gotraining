@@ -1,0 +1,6 @@
+{{gendoc}}
+service testservice
+rpc this
+ rpc that
+
+ message Youknow

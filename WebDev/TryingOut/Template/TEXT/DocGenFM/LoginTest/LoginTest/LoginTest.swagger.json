@@ -18,7 +18,7 @@
     "/v1/example/echo": {
       "post": {
         "summary": "Login",
-        "description": "Amount of services: 1\nAmount of rpc's: 1\nAmount of messages: 3",
+        "description": "The Login service is availible over 1 methods. The Login method accepts a POST message and returns a LoginReply message",
         "operationId": "Login",
         "responses": {
           "200": {
@@ -68,6 +68,7 @@
           "type": "string"
         }
       },
+      "description": "The message LoginRequest contains 2",
       "title": "LoginRequest"
     }
   }
