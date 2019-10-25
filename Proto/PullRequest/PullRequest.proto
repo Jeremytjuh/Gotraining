@@ -1,0 +1,33 @@
+syntax = "proto3";
+option go_package = "examplepb";
+package grpc.gateway.examples.examplepb;
+
+import "google/api/annotations.proto";
+
+service LoginService {
+    // Login
+    // 
+    // {{.MethodDescriptorProto.Name}} is a call with the method(s) {{$first := true}}{{range .Bindings}}{{if $first}}{{$first = false}}{{else}}, {{end}}{{.HTTPMethod}}{{end}} within the "{{.Service.Name}}" service.
+    // It takes in "{{.RequestType.Name}}" and returns a "{{.ResponseType.Name}}".
+    // 
+    // {{import "tables.md"}}
+    rpc Login (LoginRequest) returns (LoginReply) {
+        option (google.api.http) = {
+            post: "/v1/example/login"
+            body: "*"
+        };
+    }
+}
+
+message LoginRequest {
+    // The entered username 
+    string username = 1;
+    // The entered password
+    string password = 2;
+}
+
+message LoginReply {
+    string message = 1;
+    // Whether you have access or not
+    bool access = 2;
+}

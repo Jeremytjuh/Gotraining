@@ -1,0 +1,75 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PullRequest.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/example/login": {
+      "post": {
+        "summary": "Login",
+        "description": "Login is a call with the method(s) POST within the \"LoginService\" service.\nIt takes in \"LoginRequest\" and returns a \"LoginReply\".\n\n## LoginRequest\n| Field ID    | Name      | Type                                                       | Description                  |\n| ----------- | --------- | ---------------------------------------------------------  | ---------------------------- | \n| 1 | username | TYPE_STRING | The entered username | \n| 2 | password | TYPE_STRING | The entered password |   \n \n## LoginReply\n| Field ID    | Name      | Type                                                       | Description                  |\n| ----------- | --------- | ---------------------------------------------------------- | ---------------------------- | \n| 1 | message | TYPE_STRING |  | \n| 2 | access | TYPE_BOOL | Whether you have access or not |",
+        "operationId": "Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/examplepbLoginReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/examplepbLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "LoginService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "examplepbLoginReply": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "access": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "Whether you have access or not"
+        }
+      }
+    },
+    "examplepbLoginRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "title": "The entered username"
+        },
+        "password": {
+          "type": "string",
+          "title": "The entered password"
+        }
+      }
+    }
+  }
+}
