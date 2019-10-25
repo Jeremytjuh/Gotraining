@@ -128,7 +128,7 @@ import (
 	for _, v := range functions {
 		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
 	}
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
+	fmt.Printf("Successfully generated new test file called: %s\n", filename)
 }
 
 func overwriteOldTestFile(filename, packagename string, functions []string) {
@@ -155,5 +155,5 @@ import (
 	for _, v := range functions {
 		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
 	}
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename+"_test.go")
+	fmt.Printf("Successfully generated new test file called: %s\n", filename+"_test.go")
 }
