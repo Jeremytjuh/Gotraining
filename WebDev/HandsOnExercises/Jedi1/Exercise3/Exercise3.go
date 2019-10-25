@@ -97,6 +97,6 @@ func main() {
 
 	err := tpl.ExecuteTemplate(os.Stdout, "tpl.html", pass)
 	if err != nil {
-		log.Fatalln("An error has occured")
+		log.Fatalln("An error has occurred")
 	}
 }

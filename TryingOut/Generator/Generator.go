@@ -93,7 +93,7 @@ func generateTestFile(packagename string, functions []string) {
 func generateNewTestFile(filename, packagename string, functions []string) {
 	file, err := os.Create(filename)
 	if err != nil {
-		log.Fatalf("Error creating file \"%s\":", filename, err)
+		log.Fatalf("Error creating file \"%s\": %s", filename, err)
 	}
 	imports := `
         
@@ -115,13 +115,13 @@ import (
 	for _, v := range functions {
 		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
 	}
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
+	fmt.Printf("Successfully generated new test file called: %s\n", filename)
 }
 
 func overwriteOldTestFile(filename, packagename string, functions []string) {
 	file, err := os.OpenFile(filename, os.O_RDWR, 0755)
 	if err != nil {
-		log.Fatalf("Error opening %s")
+		log.Fatalf("Error opening %s", filename)
 	}
 	imports := `
         
@@ -142,5 +142,5 @@ import (
 	for _, v := range functions {
 		file.WriteString("\nfunc Benchmark" + v + "(b *testing.B){\n\tfor i := 0; i < b.N; i++ {\n\t\t" + v + "()\t//Enter the values that your function needs between the parentheses\n\t}\n}")
 	}
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
+	fmt.Printf("Successfully generated new test file called: %s\n", filename)
 }
