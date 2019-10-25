@@ -17,14 +17,14 @@
   "paths": {
     "/v1/example/echo": {
       "post": {
-        "summary": "Login",
-        "description": "The Login service is availible over 1 methods. The Login method accepts a POST message and returns a LoginReply message",
-        "operationId": "Login",
+        "summary": "Logout",
+        "description": "Logout is a call with the method(s) POST within the \"Login\" service.\nIt takes in \"LogoutRequest\" and returns a \"LogoutReply\".\n\n## LogoutRequest\n| Field ID    | Name      | Type                                                       | Description                  |\n| ----------- | --------- | ---------------------------------------------------------  | ---------------------------- | \n| 1 | timeoflogout | TYPE_STRING | This field only contains this title | \n| 2 | test | TYPE_INT32 | This is the title\u003cbr\u003e\u003cbr\u003eThis is the \"Description\" of field test\u003cbr\u003eyou can use as many newlines as you want\u003cbr\u003e\u003cbr\u003e\u003cbr\u003eit will still format the same in the table | \n| 3 | stringarray | []TYPE_STRING | Array title |   \n \n## LogoutReply\n| Field ID    | Name      | Type                                                       | Description                  |\n| ----------- | --------- | ---------------------------------------------------------- | ---------------------------- | \n| 1 | message | TYPE_STRING | Message that displays whether the logout was succesful or not |",
+        "operationId": "Logout",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/LoginTestLoginReply"
+              "$ref": "#/definitions/LoginTestLogoutReply"
             }
           }
         },
@@ -34,7 +34,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LoginTestLoginRequest"
+              "$ref": "#/definitions/LoginTestLogoutRequest"
             }
           }
         ],
@@ -55,8 +55,7 @@
           "type": "boolean",
           "format": "boolean"
         }
-      },
-      "title": "LoginReply"
+      }
     },
     "LoginTestLoginRequest": {
       "type": "object",
@@ -67,9 +66,38 @@
         "password": {
           "type": "string"
         }
-      },
-      "description": "The message LoginRequest contains 2",
-      "title": "LoginRequest"
+      }
+    },
+    "LoginTestLogoutReply": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "title": "Message that displays whether the logout was succesful or not"
+        }
+      }
+    },
+    "LoginTestLogoutRequest": {
+      "type": "object",
+      "properties": {
+        "timeoflogout": {
+          "type": "string",
+          "title": "This field only contains this title"
+        },
+        "test": {
+          "type": "integer",
+          "format": "int32",
+          "description": "This is the \"Description\" of field test\nyou can use as many newlines as you want\n\n\nit will still format the same in the table",
+          "title": "This is the title"
+        },
+        "stringarray": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Array title"
+        }
+      }
     }
   }
 }
