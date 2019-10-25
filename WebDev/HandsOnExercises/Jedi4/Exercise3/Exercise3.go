@@ -22,6 +22,6 @@ func main() {
 func execute(w http.ResponseWriter, r *http.Request) {
 	err := tpl.Execute(w, nil)
 	if err != nil {
-		log.Fatalf("Fatal Execute error occured!, %s", err)
+		log.Fatalf("Fatal Execute error occurred!, %s", err)
 	}
 }

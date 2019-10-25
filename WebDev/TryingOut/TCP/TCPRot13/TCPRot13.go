@@ -11,7 +11,7 @@ import (
 func main() {
 	li, lierr := net.Listen("tcp", ":8080")
 	if lierr != nil {
-		log.Fatalln("Fatal connection error occured: ", lierr)
+		log.Fatalln("Fatal connection error occurred: ", lierr)
 	}
 	defer li.Close()
 

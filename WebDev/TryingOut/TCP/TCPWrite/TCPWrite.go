@@ -9,7 +9,7 @@ import (
 func main() {
 	listen, listenerr := net.Listen("tcp", ":8080")
 	if listenerr != nil {
-		log.Fatalln("Listen error occured: ", listenerr)
+		log.Fatalln("Listen error occurred: ", listenerr)
 	}
 	defer listen.Close()
 
@@ -17,7 +17,7 @@ func main() {
 		connection, conerr := listen.Accept()
 
 		if conerr != nil {
-			log.Fatalln("Connection error occured: ", conerr)
+			log.Fatalln("Connection error occurred: ", conerr)
 			continue
 		}
 

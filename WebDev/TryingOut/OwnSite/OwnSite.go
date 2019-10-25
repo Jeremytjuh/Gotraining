@@ -25,6 +25,6 @@ func main() {
 	}
 	err := tpl.Execute(os.Stdout, colleagues)
 	if err != nil {
-		log.Fatalln("An error has occured")
+		log.Fatalln("An error has occurred")
 	}
 }

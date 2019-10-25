@@ -32,7 +32,7 @@ func main() {
 func toJSON(a interface{}) ([]byte, error) {
 	bs, err := json.Marshal(a)
 	if err != nil {
-		return nil, fmt.Errorf("An error occured when trying to marshall %v to JSON.\nError: %v", a, err)
+		return nil, fmt.Errorf("An error occurred when trying to marshall %v to JSON.\nError: %v", a, err)
 	}
 	return bs, nil
 }

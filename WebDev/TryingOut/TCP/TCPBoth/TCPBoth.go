@@ -10,14 +10,14 @@ import (
 func main() {
 	listen, listenerr := net.Listen("tcp", ":8080")
 	if listenerr != nil {
-		log.Fatalln("Listen error occured: ", listenerr)
+		log.Fatalln("Listen error occurred: ", listenerr)
 	}
 	defer listen.Close()
 
 	for {
 		connection, conerr := listen.Accept()
 		if conerr != nil {
-			log.Println("Connection error occured: ", conerr)
+			log.Println("Connection error occurred: ", conerr)
 			continue
 		}
 		go handle(connection)

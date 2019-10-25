@@ -24,7 +24,7 @@ func main() {
 
 func sqrt(f float64) (float64, error) {
 	if f < 0 {
-		e := fmt.Errorf("An error occured, f: %v", f)
+		e := fmt.Errorf("An error occurred, f: %v", f)
 		return 0, sqrtError{"LAT", "LAN", e}
 	}
 	return 42, nil

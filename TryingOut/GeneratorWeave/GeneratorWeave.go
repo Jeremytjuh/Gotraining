@@ -114,7 +114,7 @@ import (
 		file.WriteString(fmt.Sprintf("\nfunc (s *%s) Test%s(){\n\n}\n", typename, v))
 	}
 
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
+	fmt.Printf("Successfully generated new test file called: %s\n", filename)
 }
 
 func overwriteOldTestFile(filename, packagename string, functions []string) {
@@ -133,5 +133,5 @@ import (
 	for _, v := range functions {
 		file.WriteString(fmt.Sprintf("\nfunc Test%s(){\n\n}\n", v))
 	}
-	fmt.Printf("Succesfully generated new test file called: %s\n", filename)
+	fmt.Printf("Successfully generated new test file called: %s\n", filename)
 }

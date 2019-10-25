@@ -56,7 +56,7 @@ func handle(con net.Conn) {
 						startgame(1, con)
 					case "subtract":
 						fmt.Println("Gamemode Subtract has been started")
-						fmt.Fprintf(con, "You've started gamemode Substract\n\n")
+						fmt.Fprintf(con, "You've started gamemode Subtract\n\n")
 						startgame(2, con)
 					case "multiply":
 						fmt.Println("Gamemode Multiply has been started")
@@ -84,7 +84,7 @@ func handle(con net.Conn) {
 						fmt.Fprintf(con, "\n\n")
 					case "startmode":
 						fmt.Println("Help startmode has been requested")
-						fmt.Fprintf(con, `You can use the command "StartMode" together with either "Add", "Substract", "Multiply" or "Divide" to start the corresponding gamemode`)
+						fmt.Fprintf(con, `You can use the command "StartMode" together with either "Add", "Subtract", "Multiply" or "Divide" to start the corresponding gamemode`)
 						fmt.Fprintf(con, "\n\n")
 					case "information":
 						fmt.Println("Help information has been requested")

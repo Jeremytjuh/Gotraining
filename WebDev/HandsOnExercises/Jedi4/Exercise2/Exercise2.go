@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	log.Fatalf("Fatal error occured: %s", http.ListenAndServe(":8080", http.FileServer(http.Dir("."))))
+	log.Fatalf("Fatal error occurred: %s", http.ListenAndServe(":8080", http.FileServer(http.Dir("."))))
 }
