@@ -7,10 +7,12 @@ import (
 
 var testTemplate *template.Template
 
+// ViewData is a struct to view data
 type ViewData struct {
 	User User
 }
 
+// User is a struct of user information
 type User struct {
 	ID    int
 	Email string
