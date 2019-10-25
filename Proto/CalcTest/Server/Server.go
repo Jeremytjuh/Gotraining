@@ -1,9 +1,9 @@
 package main
 
 import (
-	pb "github.com/Jeremytjuh/Gotraining/Proto/CalcTest/CalcTest"
 	"context"
 	"fmt"
+	pb "github.com/Jeremytjuh/Gotraining/Proto/CalcTest/CalcTest"
 	"google.golang.org/grpc"
 	"log"
 	"net"

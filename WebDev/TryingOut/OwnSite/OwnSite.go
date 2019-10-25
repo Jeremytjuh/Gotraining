@@ -20,8 +20,8 @@ func init() {
 
 func main() {
 	colleagues := []people{
-		people{Fname: "Jeremy", Lname: "Nelemans", Age: 17},
-		people{Fname: "Tristan", Lname: "Goossens", Age: 17},
+		{Fname: "Jeremy", Lname: "Nelemans", Age: 17},
+		{Fname: "Tristan", Lname: "Goossens", Age: 17},
 	}
 	err := tpl.Execute(os.Stdout, colleagues)
 	if err != nil {

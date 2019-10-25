@@ -1,4 +1,4 @@
-package main// package Benchmark
+package main // package Benchmark
 
 // import (
 // 	"testing"

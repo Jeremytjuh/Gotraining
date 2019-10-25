@@ -1,7 +1,5 @@
 package Realpackage
 
-import ()
-
 func RealPackageFunc() {
 
 }

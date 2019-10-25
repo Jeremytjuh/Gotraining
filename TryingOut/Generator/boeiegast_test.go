@@ -1,19 +1,19 @@
-package boeiegast 
-        
+package boeiegast
+
 import (
-    "testing"
+	"testing"
 )
 
-func TestUpperFunc(t *testing.Testing){
+func TestUpperFunc(t *testing.Testing) {
 
 }
 
-func ExampleUpperFunc(){
+func ExampleUpperFunc() {
 
 }
 
-func BenchmarkUpperFunc(b *testing.B){
+func BenchmarkUpperFunc(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		UpperFunc()	//Enter the values that your function needs between the parentheses
+		UpperFunc() //Enter the values that your function needs between the parentheses
 	}
 }

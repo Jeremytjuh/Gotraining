@@ -53,10 +53,10 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Conten-Type", "text/html")
 		Users := []User{
-			User{1, "Jeremy", "Nelemans", 17, "jeremynelemans@hotmail.com", true},
-			User{2, "Tristan", "Goossens", 17, "tristangoossens@gmail.com", true},
-			User{3, "Henk", "Dubbelman", 65, "hendubbelman@gmail.com", false},
-			User{4, "Dave", "Bergmans", 28, "db17@rocwb.nl", true},
+			{1, "Jeremy", "Nelemans", 17, "jeremynelemans@hotmail.com", true},
+			{2, "Tristan", "Goossens", 17, "tristangoossens@gmail.com", true},
+			{3, "Henk", "Dubbelman", 65, "hendubbelman@gmail.com", false},
+			{4, "Dave", "Bergmans", 28, "db17@rocwb.nl", true},
 		}
 		pass := xUser{Users}
 		tpl.ExecuteTemplate(w, "tpl.html", pass)

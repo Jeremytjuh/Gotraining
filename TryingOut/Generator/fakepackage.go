@@ -1,7 +1,5 @@
 package boeiegast
 
-import ()
-
 func lowerFunc() {
 	// package main
 }
