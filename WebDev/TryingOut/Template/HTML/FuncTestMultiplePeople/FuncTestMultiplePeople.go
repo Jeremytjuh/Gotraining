@@ -28,16 +28,8 @@ var tpl *template.Template
 func init() {
 	var err error
 	tpl, err = template.New("tpl.html").Funcs(template.FuncMap{
-		"hasPermission": func(user User) bool {
-			if user.Permission == true {
-				return true
-			}
-			return false
-		},
 		"initials": func(user User) string {
-			xFirst := strings.Split(user.Fname, "")
-			xLast := strings.Split(user.Lname, "")
-			return fmt.Sprintf("%s%s", xFirst[0], xLast[0])
+			return fmt.Sprintf("%s%s", strings.Split(user.Fname, "")[0], strings.Split(user.Lname, "")[0])
 		},
 		"dogAge": func(user User) int {
 			return user.Age * 7
@@ -51,12 +43,13 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Conten-Type", "text/html")
+		w.Header().Set("Content-Type", "text/html")
 		Users := []User{
 			{1, "Jeremy", "Nelemans", 17, "jeremynelemans@hotmail.com", true},
-			{2, "Tristan", "Goossens", 17, "tristangoossens@gmail.com", true},
+			{2, "Tristan", "Goossens", 16, "tristangoossens@gmail.com", true},
 			{3, "Henk", "Dubbelman", 65, "hendubbelman@gmail.com", false},
 			{4, "Dave", "Bergmans", 28, "db17@rocwb.nl", true},
+			{5, "Thomas", "Schrijvernaars", 85, "thomasschrijvernaars@grinder.com", false},
 		}
 		pass := xUser{Users}
 		tpl.ExecuteTemplate(w, "tpl.html", pass)

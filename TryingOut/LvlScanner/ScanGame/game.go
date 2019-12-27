@@ -53,7 +53,7 @@ func (level *Level) Draw(screen *tl.Screen) {
 	var startx = 0 // Determines at which coordinate the rendering starts
 	var starty = 0 // Determines at which coordinate the rendering starts
 	for scanner.Scan() {
-		xline := strings.Split(scanner.Text(), ",")
+		xline := strings.Split(scanner.Text(), "")
 		for i, v := range xline {
 			switch v {
 			case "#":

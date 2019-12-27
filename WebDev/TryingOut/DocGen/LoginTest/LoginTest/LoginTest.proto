@@ -15,7 +15,7 @@ service Login {
 		}
   };
 
-// {{Login}}
+// {{import "Login.md"}}
   rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
